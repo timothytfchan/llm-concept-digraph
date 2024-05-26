@@ -1,13 +1,14 @@
 # LLM Concept Digraph
 This repository provides a versatile framework for exploring directional relationships between concepts within LLMs. The framework allows you to construct pairs from a set of variables (i.e. concepts) and prompt LLMs with each pair to determine which variable ranks higher in a custom-defined dimension. LLMs can respond by selecting either option or by stating that they are equal. These variables are then interpreted as nodes and the relationships as directed edges in a digraph, where various algorithms are used to analyze and rank them.
 
-The framework is designed to be highly adaptable, allowing you to define your own variables and dimensions of comparison. Use of GPT, Claude, Gemini, Llama, and Mistral models are supported.
+The framework is designed to be highly adaptable, allowing you to define your own variables and dimensions of comparison. Use of GPT, Claude, Gemini, Llama, and Mistral models is supported.
 
 ## Directory Structure
+```plaintext
 llm-concept-digraph
 ├── requirements.txt
 ├── configs/
-│ └── config.json
+│   └── config.json
 ├── personas.json
 ├── backends.py
 ├── utils.py
@@ -15,20 +16,20 @@ llm-concept-digraph
 ├── analyze_results.py
 ├── main.py
 ├── results/
-│ ├── results.db
-│ └── results
+│   ├── results.db
+│   └── results
 ├── README.md
 └── .env
+```
 
-## Setup
-### Prerequisites
-- Install the required Python packages:
-
+## Installation
 ```bash
+git clone https://github.com/timothytfchan/llm-concept-digraph.git
+cd llm-concept-digraph
 pip install -r requirements.txt
 ```
 
-### Configuration
+## Configuration
 Configure your experiments by editing the JSON files in the configs directory. Each configuration file specifies the models, personas, temperatures, variables, and question for the experiments.
 
 ```json
@@ -51,17 +52,24 @@ Configure your experiments by editing the JSON files in the configs directory. E
 You must prompt the model to answer within <answer></answer> tags.
 
 Set up your .env file by providing API keys:
-GOOGLE_API_KEY
-ANTHROPIC_API_KEY
-TOGETHER_API_KEY
-OPENAI_API_KEY
+```plaintext
+GOOGLE_API_KEY = ...
+ANTHROPIC_API_KEY = ...
+TOGETHER_API_KEY = ...
+OPENAI_API_KEY = ...
+```
 
-## Running the Code
-### Run Experiments and Analysis
-You can run the experiments and subsequent analysis using the main.py script. Provide the path to your configuration file as an argument:
-
+## Running the Experiments and Analysis
+Once in the project directory, you can run the experiments and subsequent analysis using the main.py script. Provide the path to your configuration file as an argument:
 ```bash
 python main.py --config path/to/your/config.json
+```
+
+You can also run the run_experiments.py and analyze_results.py files individually.
+
+```bash
+python run_experiments.py --config path/to/your/config.json
+python analyze_results.py --config path/to/your/config.json
 ```
 
 ## Code Overview
@@ -81,10 +89,4 @@ Utility functions for database operations, logging, and generating pairs of vari
 Contains backend implementations for different language models (e.g., OpenAI GPT, Claude, Gemini, Llama, Mistral).
 
 ### personas.json
-Defines personas used in the experiments. Keys are persona names and can be referenced in the config file.
-
-## Results directory
-Stores a results database for the experiments as well as a directory containing analyses of those results.
-
-## Logging
-Logs are written to experiment.log to help with debugging and tracking the progress of experiments and analysis.
+Defines personas used in the experiments. Keys are persona names and can be referenced in the config file. You can add more personas here.
