@@ -1,0 +1,14 @@
+google-generativeai
+python-dotenv
+anthropic
+backoff
+openai
+transformers
+torch
+together
+tqdm
+requests
+pandas
+networkx
+matplotlib
+numpy

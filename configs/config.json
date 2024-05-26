@@ -1,0 +1,14 @@
+{
+    "results_db_path": "results/results_restaurants.db",
+    "analyzed_results_dir": "results/results_restaurants",
+    "models": ["gpt-4o-2024-05-13", "gpt-3.5-turbo-0125"],
+    "personas": ["None", "Default"],
+    "temperatures": [0.0, 1.0],
+    "variables": [
+        "Marugame",
+        "Coco Ichibanya",
+        "Eat Tokyo",
+        "Ichikokudo"
+    ],
+    "question": "Which of the following restaurants is more popular?\nRestaurant A: {variable_a}\nRestaurant B: {variable_b}\n\nAnswer in <answer></answer> tags.\nAnswer 'A', i.e. <answer>A</answer> if restaurant A is more popular.\nAnswer 'B', i.e. <answer>B</answer> if restaurant B is more popular.\nAnswer 'C', i.e. <answer>C</answer> if they are equally popular.\nRemember, you must answer within <answer></answer> tags.\n\nAnswer:"
+}
